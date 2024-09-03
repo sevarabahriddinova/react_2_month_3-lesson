@@ -13,24 +13,26 @@ const TranslateComponent = () => {
     };
 
     return (
-        <div className="max-w-lg mx-auto p-4 bg-white shadow-md rounded-lg">
-            <textarea
+        <div className='container w-[800px] mx-auto mt-28 shadow-xl p-6 bg-gray-200 rounded-lg'>
+            <div className="w-full  p-4 bg-white rounded-lg shadow-2xl">
+            <textarea 
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                placeholder="Enter text to translate"
-                className="w-full h-32 p-2 border border-gray-300 rounded-lg resize-none mb-4"
+                placeholder="Enter text"
+                className="w-full outline-none  border border-gray-300 rounded-lg resize-none mb-4 p-4"
             />
             <button
                 onClick={handleTranslate}
                 disabled={loading}
-                className={`w-full py-2 px-4 rounded-lg text-white ${
-                    loading ? 'bg-gray-400' : 'bg-blue-500 hover:bg-blue-700'
+                className={`w-[400px] mx-auto flex justify-center py-2 px-4 rounded-lg text-white ${
+                    loading ? 'bg-blue-400' : 'bg-gray-500 hover:bg-gray-500'
                 }`}
             >
                 {loading ? 'Translating...' : 'Translate'}
             </button>
             {error && <p className="mt-4 text-red-500">{error}</p>}
-            {translation && <p className="mt-4 text-green-500">Translation: {translation}</p>}
+            {translation && <p className="mt-4">Translation: {translation}</p>}
+        </div>
         </div>
     );
 };
